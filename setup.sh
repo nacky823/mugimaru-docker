@@ -1,0 +1,21 @@
+#!/bin/bash -e
+
+UNIQUE_PS1='${debian_chroot:+($debian_chroot)}\[\\033[01;32m\]\u@\h\[\\033[00m\]:\[\\033[01;34m\]\w\[\\e[1;35m\]$(__git_ps1 "[%s]")\[\\e[m\][\\t]\$ '
+
+echo "" >> $HOME/.bashrc
+echo "if [ -f /etc/bash_completion.d/git-prompt ]; then" >> $HOME/.bashrc
+echo "  export PS1='${UNIQUE_PS1}'" >> $HOME/.bashrc
+echo "fi" >> $HOME/.bashrc
+echo "" >> $HOME/.bashrc
+
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | 
+sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+sudo apt-get update
+echo "debconf debconf/frontend select Noninteractive" | sudo debconf-set-selections
+sudo apt-get install -y ros-humble-desktop \
+    python3-rosdep \
+    python3-argcomplete \
+    python3-colcon-common-extensions \
+    gazebo ros-humble-gazebo-*
