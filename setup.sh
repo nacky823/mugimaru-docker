@@ -19,3 +19,18 @@ sudo apt-get install -y ros-humble-desktop \
     python3-argcomplete \
     python3-colcon-common-extensions \
     gazebo ros-humble-gazebo-*
+sudo apt-get autoremove -y -qq
+sudo apt-get clean
+rm -rf /var/lib/apt/lists/*
+
+echo "source /opt/ros/humble/setup.bash" >> $HOME/.bashrc
+echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> $HOME/.bashrc
+echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> $HOME/.bashrc
+echo "export _colcon_cd_root=$HOME" >> $HOME/.bashrc
+echo "export RCUTILS_COLORIZED_OUTPUT=1" >> $HOME/.bashrc
+echo "source /usr/share/gazebo/setup.bash" >> $HOME/.bashrc
+echo "export ROS_DOMAIN_ID=690" >> $HOME/.bashrc
+echo "" >> $HOME/.bashrc
+
+sudo rosdep init
+rosdep update
