@@ -12,7 +12,10 @@ RUN apt-get update && apt-get install -y \
     git \
     gnupg2 \
     lsb-release \
-    python3 python3-pip python3-tk \
+    python3 \
+    python3-pip \
+    python3-tk \
+    python3-venv \
     sudo \
     terminator \
     tree \
@@ -22,7 +25,6 @@ RUN apt-get update && apt-get install -y \
     wget \
     x11-apps \
     xterm && \
-    pip3 install torch torchvision gdown && \
     apt-get autoremove -y -qq && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
