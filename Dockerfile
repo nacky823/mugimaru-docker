@@ -17,11 +17,12 @@ RUN apt-get update && apt-get install -y \
     terminator \
     tree \
     tzdata \
+    unzip \
     vim \
     wget \
     x11-apps \
     xterm && \
-    pip3 install torch torchvision && \
+    pip3 install torch torchvision gdown && \
     apt-get autoremove -y -qq && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
