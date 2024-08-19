@@ -32,7 +32,7 @@ echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> $HOME/.bashrc
 echo "export _colcon_cd_root=$HOME" >> $HOME/.bashrc
 echo "export RCUTILS_COLORIZED_OUTPUT=1" >> $HOME/.bashrc
 echo "source /usr/share/gazebo/setup.bash" >> $HOME/.bashrc
-echo "export ROS_DOMAIN_ID=690" >> $HOME/.bashrc
+echo "export ROS_DOMAIN_ID=123" >> $HOME/.bashrc
 echo "" >> $HOME/.bashrc
 
 python3 -m venv $HOME/tmp_env
