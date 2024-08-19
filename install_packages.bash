@@ -81,6 +81,7 @@ git checkout -b mugimaru-2024/tier4/universe
 
 cd $HOME/autoware_ws
 rosdep update
+sudo apt-get update
 rosdep install -r -y --from-paths src --ignore-src --rosdistro humble
 colcon build --symlink-install --packages-up-to \
     ekf_localizer \
@@ -98,6 +99,7 @@ git clone -b ros2 https://github.com/rt-net/raspicat_sim.git
 ./raspicat_sim/raspicat_gazebo/scripts/download_gazebo_models.sh
 cd $HOME/raspicat_ws
 rosdep update
+sudo apt-get update
 rosdep install -r -y --from-paths src --ignore-src --rosdistro humble
 colcon build --symlink-install
 
@@ -108,6 +110,7 @@ git clone -b master https://github.com/nacky823/mugimaru_navigation2.git
 git clone -b master https://github.com/nacky823/mugimaru_launcher.git
 cd $HOME/mugimaru_ws
 rosdep update
+sudo apt-get update
 rosdep install -r -y --from-paths src --ignore-src --rosdistro humble
 colcon build --symlink-install
 
