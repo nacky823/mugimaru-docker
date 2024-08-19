@@ -93,16 +93,25 @@ colcon build --symlink-install --packages-up-to \
 ## Installation of Raspicat-related
 mkdir -p $HOME/raspicat_ws/src && cd $HOME/raspicat_ws/src
 git clone -b ros2 https://github.com/rt-net/raspicat_ros.git
-git clone -b ros2 https://github.com/rt-net/raspicat_description.git
+git clone -b mugimaru-2024/ros2 https://github.com/nacky823/raspicat_description.git
 git clone -b ros2 https://github.com/rt-net/raspicat_sim.git
-git clone -b ros2 https://github.com/rt-net/raspicat_slam_navigation.git
 ./raspicat_sim/raspicat_gazebo/scripts/download_gazebo_models.sh
 cd $HOME/raspicat_ws
 rosdep update
 rosdep install -r -y --from-paths src --ignore-src --rosdistro humble
 colcon build --symlink-install
 
+## Installation of Mugimaru-related
+mkdir -p $HOME/mugimaru_ws/src && cd $HOME/mugimaru_ws/src
+git clone -b mugimaru-2024/main https://github.com/nacky823/ros2_odometry_twist_converter.git
+git clone -b master https://github.com/nacky823/mugimaru_navigation2.git
+git clone -b master https://github.com/nacky823/mugimaru_launcher.git
+cd $HOME/mugimaru_ws
+rosdep update
+rosdep install -r -y --from-paths src --ignore-src --rosdistro humble
+colcon build --symlink-install
 
 echo "source $HOME/autoware_ws/install/setup.bash" >> $HOME/.bashrc
 echo "source $HOME/raspicat_ws/install/setup.bash" >> $HOME/.bashrc
+echo "source $HOME/mugimaru_ws/install/setup.bash" >> $HOME/.bashrc
 echo "" >> $HOME/.bashrc
