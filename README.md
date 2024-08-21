@@ -1,1 +1,1 @@
-# mugimaru-docker-2024
+# mugimaru-docker
