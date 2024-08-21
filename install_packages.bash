@@ -1,4 +1,6 @@
 #!/bin/bash -e
+# SPDX-FileCopyrightText: 2024 nacky823 youjiyongmu4@gmail.com
+# SPDX-License-Identifier: Apache-2.0
 
 ## Installation of Autoware Universe
 mkdir -p $HOME/autoware_ws/src/{core/external,universe/external}

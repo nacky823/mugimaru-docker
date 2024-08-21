@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 nacky823 youjiyongmu4@gmail.com
+# SPDX-License-Identifier: Apache-2.0
+
 FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
 ARG USERNAME="mugimaru"

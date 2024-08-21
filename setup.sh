@@ -1,4 +1,6 @@
 #!/bin/bash -e
+# SPDX-FileCopyrightText: 2024 nacky823 youjiyongmu4@gmail.com
+# SPDX-License-Identifier: Apache-2.0
 
 UNIQUE_PS1='${debian_chroot:+($debian_chroot)}\[\\033[01;32m\]\u@\h\[\\033[00m\]:\[\\033[01;34m\]\w\[\\e[1;35m\]$(__git_ps1 "[%s]")\[\\e[m\][\\t]\$ '
 
