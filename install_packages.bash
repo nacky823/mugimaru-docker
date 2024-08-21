@@ -116,7 +116,17 @@ sudo apt-get update
 rosdep install -r -y --from-paths src --ignore-src --rosdistro humble
 colcon build --symlink-install
 
+## Installation of Livox driver
+mkdir -p $HOME/livox_ws/src && cd $HOME/livox_ws/src
+git clone -b feat/mugimaru-config https://github.com/CIT-Autonomous-Robot-Lab/livox_ros_driver2.git
+cd $HOME/livox_ws
+rosdep update
+sudo apt-get update
+rosdep install -r -y --from-paths src --ignore-src --rosdistro humble
+cd $HOME/livox_ws/src/livox_ros_driver2 && ./build.sh humble
+
 echo "source $HOME/autoware_ws/install/setup.bash" >> $HOME/.bashrc
 echo "source $HOME/raspicat_ws/install/setup.bash" >> $HOME/.bashrc
 echo "source $HOME/mugimaru_ws/install/setup.bash" >> $HOME/.bashrc
+echo "source $HOME/livox_ws/install/setup.bash" >> $HOME/.bashrc
 echo "" >> $HOME/.bashrc
